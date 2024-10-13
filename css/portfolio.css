@@ -1,0 +1,334 @@
+@font-face {
+  font-family: "NeoSansArabic-Regular";
+  src: url("../fonts/NeoSansArabic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 70px;
+}
+
+body {
+  margin: 0;
+  color: black;
+  font-family: NeoSansArabic-Regular, sans-serif;
+  font-size: 18px;
+}
+
+.container {
+  display: grid;
+  grid-template-rows: auto 1fr 100px;
+  grid-template-areas:
+    "header header header"
+    "main main main"
+    "footer footer footer";
+}
+
+header {
+  grid-area: header;
+  color: blue;
+  font-weight: bold;
+  width: 100%;
+  position: fixed;
+  background-color: rgba(255, 255, 255, 0.8);
+  transition: background-color 0.3s ease;
+}
+
+header nav ul {
+  display: flex;
+  padding: 0;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  gap: 50px;
+}
+
+a {
+  text-decoration: none;
+  color: blue;
+}
+
+li {
+  width: 80px;
+  list-style: none;
+}
+
+main {
+  margin-top: 65px;
+  grid-area: main;
+}
+
+footer {
+  grid-area: footer;
+}
+
+.main-container {
+  display: grid;
+  grid-template-columns: 1fr 2.3fr 1fr;
+  grid-template-rows: 300px auto 1fr;
+  row-gap: 70px;
+}
+
+.titulo {
+  grid-column: 2/3;
+  grid-row: 1/2;
+  text-align: center;
+  align-content: center;
+}
+
+.titulo-content {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.titulo-content p:first-child {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.titulo-content p:nth-child(2) {
+  color: blue;
+  font-size: 22px;
+}
+
+.titulo-botones {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.titulo-botones button {
+  border-radius: 5px;
+  border: none;
+  width: 110px;
+  height: 38px;
+  background-color: blue;
+  color: white;
+  font-size: 17px;
+  transition: filter 0.3s ease;
+  cursor: pointer;
+}
+
+.titulo-botones button:hover {
+  background-color: rgb(11, 113, 230);
+}
+
+.sobre-mi-container {
+  display: grid;
+  grid-column: 2/3;
+  grid-row: 2/3;
+  grid-template-rows: 50px 1fr;
+  text-align: center;
+  align-content: center;
+  align-items: center;
+}
+
+.proyectos-container {
+  display: grid;
+  grid-column: 2/3;
+  grid-row: 3/4;
+  grid-template-rows: 50px 1fr;
+  text-align: center;
+  align-content: center;
+  align-items: center;
+}
+
+.proyectos-container .section-content {
+  display: grid;
+  grid-template-rows: 200px 200px 200px;
+  grid-column: 1/3;
+  gap: 35px;
+}
+
+.section-titulo {
+  grid-column: 1/3;
+  color: blue;
+  font-weight: bold;
+  font-size: 19px;
+}
+
+.proyecto {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 35px;
+  text-align: justify;
+}
+
+.descripcion-proyecto {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.descripcion-proyecto p:first-child {
+  color: blue;
+  font-size: 20px;
+}
+
+p {
+  margin: 0px;
+}
+
+.imagen {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+footer {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: blue;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  height: 160px;
+}
+
+.iconos-footer {
+  display: flex;
+  gap: 30px;
+}
+
+.iconos-footer img {
+  width: 35px;
+  height: auto;
+}
+
+.proyecto .imagen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/*Para moviles*/
+@media (max-width: 500px) {
+  p {
+    font-size: 15px;
+  }
+
+  .main-container {
+    grid-template-columns: 40px 1fr 40px;
+    row-gap: 35px;
+  }
+
+  .titulo-botones {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .titulo-botones button {
+    width: 80px;
+    height: 30px;
+    font-size: 14px;
+  }
+
+  .proyectos-container .section-content {
+    grid-template-rows: repeat(3, 320px);
+    gap: 20px;
+  }
+
+  .proyecto {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    gap: 15px;
+    grid-template-areas:
+      "descripcion"
+      "imagen";
+  }
+
+  .proyecto .descripcion-proyecto {
+    grid-area: descripcion;
+  }
+
+  .proyecto .imagen {
+    grid-area: imagen;
+  }
+
+  .descripcion-proyecto p:first-child {
+    font-size: 16px;
+  }
+
+  .iconos-footer img {
+    width: 28px;
+    height: auto;
+  }
+
+  .content-footer p:nth-child(2) {
+    display: none;
+  }
+
+  .content-footer p:nth-child(1)::after {
+    content: "\A © 2024 Adrian Sullca\A Todos los derechos reservados";
+    white-space: pre;
+  }
+
+  .titulo .titulo-content p {
+    font-size: 24px;
+  }
+
+  .titulo .titulo-content p:nth-child(2) {
+    font-size: 19px;
+  }
+}
+/*Para tablets*/
+
+@media (min-width: 501px) and (max-width: 700px) {
+  .main-container {
+    grid-template-columns: 60px 1fr 60px;
+    row-gap: 40px;
+  }
+
+  p {
+    font-size: 16px;
+  }
+
+  .proyecto {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    grid-template-areas:
+      "descripcion"
+      "imagen";
+  }
+
+  .proyectos-container .section-content {
+    grid-template-rows: repeat(3, 320px);
+    gap: 20px;
+  }
+
+  .proyecto .descripcion-proyecto {
+    grid-area: descripcion;
+  }
+
+  .proyecto .imagen {
+    grid-area: imagen;
+  }
+
+  .descripcion-proyecto p:first-child {
+    font-size: 17px;
+  }
+
+  .iconos-footer img {
+    width: 30px;
+    height: auto;
+  }
+}
+
+@media (min-width: 701px) and (max-width: 1025px) {
+  .main-container {
+    grid-template-columns: 100px 1fr 100px;
+    row-gap: 40px;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1230px) {
+  .main-container {
+    grid-template-columns: 200px 1fr 200px;
+  }
+}
